@@ -92,6 +92,6 @@ Since our look-aheads are satisfied when they find one of something, they implem
 (?=.*\d)		at least one digit
 (?=.*[.!#])		at least one special character
 
-## Author
+## About the Author
 
 Elliott Davis is a full-stack developer with over 20 years of experience figuring out all sorts of technologies, industries, roles and challenges. He also raises children and likes to roam in mountains. You can his software work on [Github](https://github.com/crestonesoftware) or his work as a bird-guide (and bird-nerd) on [eBird](https://ebird.org/profile/MzE1OTc0Mw/MX-NAY-005)

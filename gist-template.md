@@ -10,6 +10,7 @@ This gist explains the use of a regular expression to implement a common passwor
 ## Summary
 
 Behold, the regular expression, in its complete and inscrutable glory!
+
 ^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[.!#])[a-zA-Z\d.!#]{8,256}$
 
 This expression has the following parts:
@@ -76,6 +77,21 @@ means: at least 8, and no more than 256, characters which are any mix of upperca
 
 ### Look-ahead
 
+Look-aheads consider the content of a string forward of a starting point. Their siblings, Look-behinds, do the reverse. They are satisfied when they look forward or behind their starting point and find what they are looking for. In our expression, look-aheads ensure that the password contains at least one of various character types. They all start from the beginning, so that they consider the entire password.
+
+Our first look-ahead is (?=.*[A-Z]). Its parts mean the following:
+
+(?=)	this is the base of a look-ahead
+[A-Z]	Character class that the look-ahead is looking for
+.*		the starting point. The look-ahead starts looking for whatever comes after this. In our case, since . means "any character" and * means "zero or more occurences of the preceding expression", our look-ahead will be satisfied if it finds an uppercase character after any other characters, or zero other characters. Simply put, this means "anywhere in the password"
+
+Since our look-aheads are satisfied when they find one of something, they implement the "at least 1 ____" rules for our password.
+
+(?=.*[A-Z])	at least one uppercase character
+(?=.*[a-z])	at least one lowercase character
+(?=.*\d)		at least one digit
+(?=.*[.!#])		at least one special character
+
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Elliott Davis is a full-stack developer with over 20 years of experience figuring out all sorts of technologies, industries, roles and challenges. He also raises children and likes to roam in mountains. You can his software work on [Github](https://github.com/crestonesoftware) or his work as a bird-guide (and bird-nerd) on [eBird](https://ebird.org/profile/MzE1OTc0Mw/MX-NAY-005)

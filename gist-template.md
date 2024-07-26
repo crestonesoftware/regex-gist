@@ -74,23 +74,13 @@ specifies that the password must be made up of any combination of lowercase, upp
 For how to specify what the password MUST contain, refer to [Look-ahead](#look-ahead)
 
 ### Character Class + Quantifier
-Combining a Character Class and a Quantifier is a way to match a specific number of characters. In this expression
+Combining a Character Class and a Quantifier is a way to match a specific number of characters
 
 [a-zA-Z\d!@#$%^&*()_-+=:;<,>.?/~]{8,256}
 
 means: at least 8, and no more than 256, characters which are any mix of uppercase, lowercase, special, and numeric characters. 
 
-### Grouping and Capturing
-
-### Bracket Expressions
-
-### Greedy and Lazy Match
-
-### Boundaries
-
-### Back-references
-
-### Look-ahead and Look-behind
+### Look-ahead
 
 ## Author
 

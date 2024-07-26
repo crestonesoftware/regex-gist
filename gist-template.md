@@ -26,14 +26,8 @@ As you read the explanation below, consider the expression from two angles:
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
-- [Grouping and Capturing](#grouping-and-capturing)
-- [Bracket Expressions](#bracket-expressions)
-- [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
+- [Character Class and Quantifier](#character-class-and-quantifier)
 - [Look-ahead](#look-ahead)
 
 ## Regex Components
@@ -73,7 +67,7 @@ specifies that the password must be made up of any combination of lowercase, upp
 
 For how to specify what the password MUST contain, refer to [Look-ahead](#look-ahead)
 
-### Character Class + Quantifier
+### Character Class and Quantifier
 Combining a Character Class and a Quantifier is a way to match a specific number of characters
 
 [a-zA-Z\d!@#$%^&*()_-+=:;<,>.?/~]{8,256}

@@ -14,13 +14,13 @@ Behold, the regular expression, in its complete and inscrutable glory!
 
 This expression has the following parts:
 - beginning and ending anchors, e.g ^ and $
-- lookaheads: parts that ensure that something specified does or does not occur later in the string, e.g. (?=)
+- lookaheads: parts that ensure that something specified does or does not occur later in the password, e.g. (?=)
 - character classes: groups of characters, e.g. [a-z]
 - quantifier: specifies a number of times something must appear, e.g. {8,256}
 
-Consider the expression from two angles:
-- it must have certain aspects
-- it may not contain characters other than what is specified
+As you read the explanation below, consider the expression from two angles:
+- it may contain only certain types characters, e.g. it cannot contain a space or newline
+- it must contain certain types of characters, e.g. it must contain a digit
 
 ## Table of Contents
 
@@ -39,14 +39,16 @@ Consider the expression from two angles:
 ## Regex Components
 
 ### Anchors
-^ beginning of the string
-$ end of the string
+^ beginning of the string under consideration
+$ end of the string under consideration
 
-The expression begins with ^ and ends with $. This concerns what the string cannot have: it may not have anything that doesn't match what is specified in the expression. This means that the expression will only match an entire string, i.e. if the expression matched only numbers, it would 12345 and would not match the numeric portions of A12345 or 12345Q.
+The expression begins with ^ and ends with $. This concerns what the password cannot have: it may not have anything outside what is specified in the expression. This means that the expression will only match an entire string, i.e. if the expression matched only numbers
+- it would match 12345 
+- it would not match the numeric portions of ABC12345 or 12345PDQ
 
 ### Quantifiers
 
-This expression users two Quantifiers. 
+This expression users two Quantifiers to specific the length of the password.
 - The number before the comma means "at least this many" of what came before the quantifier"
 - The number after the comma means "no more than this many" of what came before the quantifier"
 - {8,256} the complete quantifier means "at least 8 and no more than 256 of what came before the quantifier"
@@ -63,20 +65,20 @@ Our expression doesn't care which individual characters are used. Instead, it ma
 - \d or 0-9 any digit
 - [a-z\d] a combination of character types can make up a single Character Class, i.e. "a character that matches anything in the brackets"
 
-The major Character Class in this expression specifies the characters that MAY be in the string, without saying what MUST be in the string
-[a-zA-Z\d.!#]
-specifies that the string must be made up of any combination of lowercase, uppercase, digit, and special characters. With only this Character Class, the following would match
+The major Character Class in this expression specifies the characters that MAY be in the password, without saying what MUST be in the password
+[a-zA-Z\d!@#$%^&*()_-+=:;<,>.?/~]
+specifies that the password must be made up of any combination of lowercase, uppercase, digit, and special characters. With only this Character Class, the following would match
 - only numbers
 - only numbers and lowercase letters
 
-For how to specify what the string MUST contain, refer to [Look-ahead](#look-ahead)
+For how to specify what the password MUST contain, refer to [Look-ahead](#look-ahead)
 
 ### Character Class + Quantifier
 Combining a Character Class and a Quantifier is a way to match a specific number of characters. In this expression
 
-[a-zA-Z\d.!#]{8,256}
+[a-zA-Z\d!@#$%^&*()_-+=:;<,>.?/~]{8,256}
 
-means: at least 8 and no more than 256 the characters in the brackets, which include uppercase, lowercase, special, and numeric characters. This 
+means: at least 8, and no more than 256, characters which are any mix of uppercase, lowercase, special, and numeric characters. 
 
 ### Grouping and Capturing
 
